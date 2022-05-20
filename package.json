@@ -1,0 +1,37 @@
+{
+  "name": "tech-blog",
+  "description": "This application is a blog site where users can create accounts to post their thoughts on the current state of modern tech and comment on other's posts, utilizing Node, Express, MySQL, and HandleBars.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArchieDonaho/Tech-Blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArchieDonaho/Tech-Blog/issues"
+  },
+  "homepage": "https://github.com/ArchieDonaho/Tech-Blog#readme",
+  "dependencies": {
+    "babel-eslint": "^10.1.0",
+    "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.3",
+    "dotenv": "^16.0.0",
+    "eslint": "^8.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.5",
+    "express-session": "^1.17.2",
+    "jest": "^28.0.3",
+    "mysql2": "^2.3.3",
+    "prettier": "^2.6.2",
+    "sequelize": "^6.19.0"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,2 @@
+DROP DATABASE IF EXIST social_db;
+CREATE DATABASE social_db;

@@ -1,0 +1,40 @@
+<article>
+  <br />
+  <h1 class='title is-3'>Edit Post</h1>
+  <form class='media-content' id='edit-post-form'>
+    <div class='field'>
+      <label for='title' class='label'>Title</label>
+      <div class='control has-icons-left has-icons-right'>
+        <input
+          id='title'
+          class='input'
+          type='text'
+          name='post-title'
+          value='{{post.title}}'
+        />
+      </div>
+    </div>
+
+    <div class='field'>
+      <p class='control'>
+        <label for='content'></label>
+        <input
+          class='textarea'
+          type='text'
+          id='content'
+          name='post-content'
+          value='{{post.content}}'
+        />
+      </p>
+    </div>
+
+    <div class='field is-grouped'>
+      <div class='control'>
+        <button type='submit' class='button is-link'>Save post</button>
+        <button type='button' class='button is-link' id='delete-post-btn'>Delete
+          post</button>
+      </div>
+    </div>
+  </form>
+</article>
+<script src='/javascript/edit-post.js'></script>

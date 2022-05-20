@@ -1,0 +1,8 @@
+<div>
+  {{#each this}}
+    <section class='box'>
+      <div><strong>@{{user.username}}</strong> {{format_date created_at}}</div>
+      <div>{{content}}</div>
+    </section>
+  {{/each}}
+</div>
