@@ -23,7 +23,7 @@ const sess = {
   secret: process.env.SECRET,
   cookie: {
     // session expires after 16.5 minutes of inactivity
-    expires: 990000,
+    // expires: 990000,
   },
   resave: false,
   saveUninitialized: true,
@@ -51,8 +51,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 // connect to database and start the server
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => {
-    console.log(`Now listening on port ${PORT}`);
+    console.log(`Hosting at http://localhost:${PORT}/`);
   });
 });

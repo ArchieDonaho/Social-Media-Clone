@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { Category } = require('../../models');
+const sequelize = require('../../config/connection');
+const { Category, Post, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 //get all categories
@@ -9,7 +10,7 @@ router.get('/', (req, res) => {
     include: [
       {
         model: Post,
-        attributes: ['id', 'title', 'category', 'content'],
+        attributes: ['id', 'title', 'category_id', 'content'],
         include: {
           model: User,
           attributes: ['username'],
@@ -34,18 +35,7 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Post,
-        attributes: [
-          'id',
-          'title',
-          'category_id',
-          'content',
-          [
-            sequelize.literal(
-              '(SELECT COUNT(*) FROM Likes WHERE post.id = likes.post_id)'
-            ),
-            'like_count',
-          ],
-        ],
+        attributes: ['id', 'title', 'category_id', 'content'],
         include: [
           {
             model: User,
@@ -53,7 +43,7 @@ router.get('/:id', (req, res) => {
           },
           {
             model: Comment,
-            attributes: ['id', 'category_id', 'content', 'post_id', 'user_id'],
+            attributes: ['id', 'content', 'post_id', 'user_id'],
             include: {
               model: User,
               attributes: ['username'],
@@ -132,3 +122,5 @@ router.delete('/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
+
+module.exports = router;

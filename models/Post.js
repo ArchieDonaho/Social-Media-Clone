@@ -29,6 +29,31 @@ class Post extends Model {
       });
     });
   }
+  // define the dislike feature
+  // static dislike (body, models) {
+  //   return models.Likes.create({
+  //     user_id: body.user_id,
+  //     post_id: body.post_id,
+  //   }).then(() => {
+  //     return Post.findOne({
+  //       where: {
+  //         id: body.post_id,
+  //       },
+  //       attributes: [
+  //         'id',
+  //         'title',
+  //         'content',
+  //         'created_at',
+  //         [
+  //           sequelize.literal(
+  //             '(SELECT COUNT(*) FROM likes WHERE post.id = likes.post_id)'
+  //           ),
+  //           'like_count',
+  //         ],
+  //       ],
+  //     });
+  //   });
+  // };
 }
 
 // define post columns
@@ -45,7 +70,7 @@ Post.init(
       allowNull: false,
     },
     category_id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: 'category',
